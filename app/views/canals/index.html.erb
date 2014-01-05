@@ -1,0 +1,35 @@
+<h1>Listing canals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tamanio</th>
+      <th>Tipo</th>
+      <th>Cantidad</th>
+      <th>Precio</th>
+      <th>Preciof</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @canals.each do |canal| %>
+      <tr>
+        <td><%= canal.tamanio %></td>
+        <td><%= canal.tipo %></td>
+        <td><%= canal.cantidad %></td>
+        <td><%= canal.precio %></td>
+        <td><%= canal.preciof %></td>
+        <td><%= link_to 'Show', canal %></td>
+        <td><%= link_to 'Edit', edit_canal_path(canal) %></td>
+        <td><%= link_to 'Destroy', canal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Canal', new_canal_path %>

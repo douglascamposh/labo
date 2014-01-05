@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  observacion: MyString
+  cantidad: 1
+  aficionado: false
+
+two:
+  observacion: MyString
+  cantidad: 1
+  aficionado: false

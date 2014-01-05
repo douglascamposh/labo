@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tamanio: MyString
+  tipo: MyString
+  cantidad: 1
+  precio: 1.5
+  preciof: 1.5
+
+two:
+  tamanio: MyString
+  tipo: MyString
+  cantidad: 1
+  precio: 1.5
+  preciof: 1.5
