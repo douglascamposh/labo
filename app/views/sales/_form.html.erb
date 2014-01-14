@@ -21,9 +21,52 @@
   </div>
   <div class="field">
     <%= f.label :aficionado %><br>
-    <%= f.check_box :aficionado %>
+    <%= f.select :aficionado, options_for_select({ "Aficionado" => true, "Fotografo" => false }) %>
+  </div>
+  <div class="field">
+    <%= f.label "Sobre" %><br>
+    <%= f.text_field :sobre %>
+  </div>
+  <div class="field">
+    <%= f.label "A cuenta" %><br>
+    <%= f.text_field :acuenta %>
+  </div>
+  <div class="field">
+    <%= f.label "Saldo" %><br>
+    <%= f.text_field :saldo %>
+  </div>
+  <div class="field">
+    <%= f.label "Total" %><br>
+    <%= f.text_field :total %>
+  </div>
+  <div class="field">
+    <%= f.label "Nombre" %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label "Tamanio" %><br>
+    <%= f.select :canal_id, options_for_select(options_from_collection_for_select(Canal.all,:id,:tamanio)) %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+<script type="text/javascript">
+  $(function() {
+  $('#sale_aficionado').change(function(){ 
+    var valor_total = $("#sale_cantidad").val();
+    var aficionado = $("#sale_aficionado").val();
+    if(valor_total>=1){
+      if (aficionado == 'true') {
+        valor_total = valor_total * 1;
+        $("#sale_total").attr("value",valor_total);
+      }
+      if (aficionado == 'false') {
+        valor_total = valor_total * 2;
+        $("#sale_total").attr("value",valor_total);
+      }
+    }
+  });
+
+});
+</script>

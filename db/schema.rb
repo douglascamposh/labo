@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140105195852) do
+ActiveRecord::Schema.define(version: 20140112022013) do
 
   create_table "canals", force: true do |t|
     t.string   "tamanio"
@@ -21,7 +21,10 @@ ActiveRecord::Schema.define(version: 20140105195852) do
     t.float    "preciof"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "sale_id"
   end
+
+  add_index "canals", ["sale_id"], name: "index_canals_on_sale_id"
 
   create_table "sales", force: true do |t|
     t.string   "observacion"
@@ -29,7 +32,15 @@ ActiveRecord::Schema.define(version: 20140105195852) do
     t.boolean  "aficionado"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "canal_id"
+    t.integer  "sobre"
+    t.float    "acuenta"
+    t.float    "saldo"
+    t.float    "total"
+    t.string   "nombre"
   end
+
+  add_index "sales", ["canal_id"], name: "index_sales_on_canal_id"
 
   create_table "venta", force: true do |t|
     t.string   "observacion"
