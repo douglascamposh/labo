@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140112022013) do
+ActiveRecord::Schema.define(version: 20140714234921) do
+
+  create_table "assistances", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "salida"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.date     "entrada"
+  end
+
+  add_index "assistances", ["user_id"], name: "index_assistances_on_user_id"
 
   create_table "canals", force: true do |t|
     t.string   "tamanio"
@@ -41,6 +51,32 @@ ActiveRecord::Schema.define(version: 20140112022013) do
   end
 
   add_index "sales", ["canal_id"], name: "index_sales_on_canal_id"
+
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "nombre"
+    t.integer  "telefono"
+    t.string   "direccion"
+    t.date     "fecha"
+    t.integer  "acuenta"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "ci"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "venta", force: true do |t|
     t.string   "observacion"

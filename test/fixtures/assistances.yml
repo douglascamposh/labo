@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 
+  salida: 2014-07-14 18:04:52
+
+two:
+  user_id: 
+  salida: 2014-07-14 18:04:52

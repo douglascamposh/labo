@@ -1,0 +1,29 @@
+<h1>Listing assistances</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Entrada</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @assistances.each do |assistance| %>
+      <tr>
+        <td><%= assistance.user.nombre %></td>
+        <td><%= assistance.entrada %></td>
+        <td><%= link_to 'Show', assistance %></td>
+        <td><%= link_to 'Edit', edit_assistance_path(assistance) %></td>
+        <td><%= link_to 'Destroy', assistance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Assistance', new_assistance_path %>

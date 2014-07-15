@@ -1,4 +1,7 @@
 Laboratorio::Application.routes.draw do
+  resources :assistances
+
+  devise_for :users , controllers: {registrations: 'registrations'}
   resources :sales
 
   resources :canals
