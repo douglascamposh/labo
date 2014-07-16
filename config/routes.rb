@@ -1,4 +1,6 @@
 Laboratorio::Application.routes.draw do
+  resources :contracts
+
   resources :assistances
 
   devise_for :users , controllers: {registrations: 'registrations'}

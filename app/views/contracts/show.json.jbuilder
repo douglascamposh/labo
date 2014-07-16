@@ -1,0 +1,1 @@
+json.extract! @contract, :id, :nombre, :telefono, :celular, :acontecimiento, :fecha, :direccion, :observacion, :video, :fotos, :mosaico, :acuenta, :saldo, :total, :latitude, :longitude, :created_at, :updated_at

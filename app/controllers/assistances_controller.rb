@@ -28,7 +28,7 @@ class AssistancesController < ApplicationController
     if Assistance.estaDuplicado?(@assistance) == false
      respond_to do |format|
       if @assistance.save
-        format.html { redirect_to @assistance, notice: 'Assistance was successfully created.' }
+        format.html { redirect_to assistances_url, notice: 'Se registro su asistencia correctamente' }
         format.json { render action: 'show', status: :created, location: @assistance }
       else
         format.html { render action: 'new' }
@@ -37,7 +37,8 @@ class AssistancesController < ApplicationController
      end
     else
       respond_to do |format|
-        format.html { render action: 'new', notice: 'No puede ingresar 2 veces el mismo dia' }
+      
+        format.html { redirect_to "/assistances/new", :flash => { :error => "No puede ingresar 2 veces el mismo dia" } }
         format.json { render json: @assistance.errors, status: :unprocessable_entity }
       end
     end

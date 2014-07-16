@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nombre: MyString
+  telefono: MyString
+  celular: MyString
+  acontecimiento: MyString
+  fecha: 2014-07-16 18:54:23
+  direccion: MyText
+  observacion: MyText
+  video: false
+  fotos: 1
+  mosaico: MyString
+  acuenta: MyString
+  saldo: MyString
+  total: MyString
+  latitude: 1.5
+  longitude: 1.5
+
+two:
+  nombre: MyString
+  telefono: MyString
+  celular: MyString
+  acontecimiento: MyString
+  fecha: 2014-07-16 18:54:23
+  direccion: MyText
+  observacion: MyText
+  video: false
+  fotos: 1
+  mosaico: MyString
+  acuenta: MyString
+  saldo: MyString
+  total: MyString
+  latitude: 1.5
+  longitude: 1.5

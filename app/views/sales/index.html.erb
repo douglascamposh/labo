@@ -3,9 +3,16 @@
 <table>
   <thead>
     <tr>
-      <th>Observacion</th>
+      <th>No de sobre</th>
+      <th>Nombre</th>
+      <th>Categoria</th>
       <th>Cantidad</th>
-      <th>Aficionado</th>
+      <th>tamanio</th>
+      <th>Precio Unitario</th>
+      <th>A cuenta</th>
+      <th>Saldo</th>
+      <th>Total</th>
+      <th>Observacion</th>
       <th></th>
       <th></th>
       <th></th>
@@ -15,9 +22,16 @@
   <tbody>
     <% @sales.each do |sale| %>
       <tr>
-        <td><%= sale.observacion %></td>
-        <td><%= sale.cantidad %></td>
+        <td><%= sale.sobre %></td>
+        <td><%= sale.nombre %></td>
         <td><%= sale.aficionado %></td>
+        <td><%= sale.cantidad %></td>
+        <td><%= sale.canal.id %></td>
+        <td><%= sale.canal.id %></td>
+        <td><%= sale.acuenta %></td>
+        <td><%= sale.saldo %></td>
+        <td><%= sale.total %></td>
+        <td><%= sale.observacion %></td>
         <td><%= link_to 'Show', sale %></td>
         <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
         <td><%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>

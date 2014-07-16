@@ -4,7 +4,8 @@
   <thead>
     <tr>
       <th>User</th>
-      <th>Entrada</th>
+      <th>Ingreso</th>
+      <th>Salida</th>
       <th></th>
       <th></th>
       <th></th>
@@ -15,9 +16,12 @@
     <% @assistances.each do |assistance| %>
       <tr>
         <td><%= assistance.user.nombre %></td>
-        <td><%= assistance.entrada %></td>
-        <td><%= link_to 'Show', assistance %></td>
-        <td><%= link_to 'Edit', edit_assistance_path(assistance) %></td>
+        <td><%= assistance.created_at.localtime.strftime("%Y-%m-%e %I:%M") %></td>
+        <% if !assistance.salida.nil? %>
+        <td><%= assistance.salida.localtime.strftime("%Y-%m-%e %I:%M") %></td>
+        <% else %>
+          <td><%= link_to 'Marcar Salida', edit_assistance_path(assistance) %></td>
+        <% end %>
         <td><%= link_to 'Destroy', assistance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140714234921) do
+ActiveRecord::Schema.define(version: 20140716232046) do
 
   create_table "assistances", force: true do |t|
     t.integer  "user_id"
@@ -35,6 +35,28 @@ ActiveRecord::Schema.define(version: 20140714234921) do
   end
 
   add_index "canals", ["sale_id"], name: "index_canals_on_sale_id"
+
+  create_table "contracts", force: true do |t|
+    t.string   "nombre"
+    t.string   "telefono"
+    t.string   "celular"
+    t.string   "acontecimiento"
+    t.datetime "fecha"
+    t.text     "direccion"
+    t.text     "observacion"
+    t.integer  "fotos"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "video"
+    t.integer  "acuenta"
+    t.integer  "saldo"
+    t.integer  "total"
+    t.integer  "user_id"
+  end
+
+  add_index "contracts", ["user_id"], name: "index_contracts_on_user_id"
 
   create_table "sales", force: true do |t|
     t.string   "observacion"
