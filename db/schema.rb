@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716232046) do
+ActiveRecord::Schema.define(version: 20140716235959) do
 
   create_table "assistances", force: true do |t|
     t.integer  "user_id"
@@ -31,10 +31,7 @@ ActiveRecord::Schema.define(version: 20140716232046) do
     t.float    "preciof"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "sale_id"
   end
-
-  add_index "canals", ["sale_id"], name: "index_canals_on_sale_id"
 
   create_table "contracts", force: true do |t|
     t.string   "nombre"
