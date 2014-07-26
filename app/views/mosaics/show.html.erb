@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tamanio:</strong>
+  <%= @mosaic.tamanio %>
+</p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= @mosaic.precio %>
+</p>
+
+<p>
+  <strong>Costo:</strong>
+  <%= @mosaic.costo %>
+</p>
+
+<%= link_to 'Edit', edit_mosaic_path(@mosaic) %> |
+<%= link_to 'Back', mosaics_path %>

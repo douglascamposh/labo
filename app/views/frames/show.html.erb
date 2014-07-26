@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Modelo:</strong>
+  <%= @frame.modelo %>
+</p>
+
+<p>
+  <strong>Tamanio:</strong>
+  <%= @frame.tamanio %>
+</p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= @frame.precio %>
+</p>
+
+<p>
+  <strong>Costo:</strong>
+  <%= @frame.costo %>
+</p>
+
+<%= link_to 'Edit', edit_frame_path(@frame) %> |
+<%= link_to 'Back', frames_path %>

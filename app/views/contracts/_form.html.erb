@@ -1,3 +1,4 @@
+<%= render 'mapa' %>
 <%= form_for(@contract) do |f| %>
   <% if @contract.errors.any? %>
     <div id="error_explanation">
@@ -11,63 +12,95 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
+
+ <class="container">
+  <form role="form">
+  <div class="row clearfix">
+    <div class="col-md-4 column">
+      <div class="well">
+      
+        <div class="form-group">
+           <label for="exampleInputEmail1">Nombre</label>
+            <%= f.text_field :nombre, :class=>'form-control' %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Telefono</label>
+            <%= f.text_field :telefono, :class=>'form-control' %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Celular</label>
+           <%= f.text_field :celular, :class=> 'form-control' %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Acontecimiento</label>
+           <%= f.text_field :acontecimiento, :class=>'form-control' %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Direccion</label>
+           <%= f.text_area :direccion, :class=>'form-control', :required => true %>
+            <input type="button" value="Geocode" onclick="codeAddress()">
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Fecha</label>
+           <%= f.text_field :fecha, :class=>'form-control' %> 
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Observacion</label>
+           <%= f.text_area :observacion, :class=>'form-control', :placeholder=>'Ingrese nombres de los padres, padrinos, etc', :maxlength => 1000 , :title => "Ingrese la observacion" %>
+        </div>
+      
+    </div>
+
+    </div>
+    <div class="col-md-4 column">
+      <div class="well">
+        
+        <div class="form-group">
+           <label for="example">Fotos</label>
+           <%= f.number_field :fotos, :class=>'form-control', :placeholder=>'Cantidad de Docenas', :maxlength => 10 , :title => "Ingrese la Cantidad de docenas de fotos" %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Video</label>
+           <select id = "contract_video" name = "contract[video]" class='form-control input-sm' >
+                <option value='500'> DVD - precio 500 Bs.</option>
+                <option value='700'> FullHD - precio 700 Bs.</option>
+            </select>
+        </div>
+        <div class="form-group">
+        <label >Mosaico</label>
+          <%= f.collection_select :mosaic_id, Mosaic.all, :id, :tamanio, {prompt: "Seleccione un tamanio"}, {class: "form-control input-sm"} %>
+        </div>
+        <div class="form-group">
+        <label >Marco</label>
+        <%= f.collection_select :frame_id, Frame.all, :id, :modelo, {prompt: "Seleccione un modelo"}, {class: "form-control input-sm"} %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputEmail1">A cuenta</label><%= f.number_field :acuenta, :class=>'form-control', :placeholder=>'ingrese cuanto cuanto dejara a cuenta', :maxlength => 10 , :title => "Por favor rellene este campo", :required => true %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Saldo</label>
+           <%= f.number_field :saldo, class: "form-control", :placeholder=>'ingrese el saldo', :maxlength => 10 , :title => "Por favor rellene este campo", :required => true %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Total</label>
+           <%= f.number_field :total, class: "form-control", :placeholder=>'Ingrese el total', :maxlength => 10 , :title => "Por favor rellene este campo", :required => true %>
+        </div>
+        <div>
+          <%= f.hidden_field :latitude %>
+        </div>
+        <div>
+          <%= f.hidden_field :longitude %>
+        </div>
+      
+    </div>
+    </div>
+    <div class="col-md-4 column">
+      <div id="map" style="width:420px; height:450px"></div>
+    </div>
+    </form>
   </div>
-  <div class="field">
-    <%= f.label :telefono %><br>
-    <%= f.text_field :telefono %>
-  </div>
-  <div class="field">
-    <%= f.label :celular %><br>
-    <%= f.text_field :celular %>
-  </div>
-  <div class="field">
-    <%= f.label :acontecimiento %><br>
-    <%= f.text_field :acontecimiento %>
-  </div>
-  <div class="field">
-    <%= f.label :fecha %><br>
-    <%= f.datetime_select :fecha %>
-  </div>
-  <div class="field">
-    <%= f.label :direccion %><br>
-    <%= f.text_area :direccion %>
-  </div>
-  <div class="field">
-    <%= f.label :observacion %><br>
-    <%= f.text_area :observacion %>
-  </div>
-  <div class="field">
-    <%= f.label :video %><br>
-    <%= f.number_field :video %>
-  </div>
-  <div class="field">
-    <%= f.label :fotos %><br>
-    <%= f.number_field :fotos %>
-  </div>
-  <div class="field">
-    <%= f.label :acuenta %><br>
-    <%= f.number_field :acuenta %>
-  </div>
-  <div class="field">
-    <%= f.label :saldo %><br>
-    <%= f.number_field :saldo %>
-  </div>
-  <div class="field">
-    <%= f.label :total %><br>
-    <%= f.number_field :total %>
-  </div>
-  <div class="field">
-    <%= f.label :latitude %><br>
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br>
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <input type="submit" value="Registrar Contrato" class="btn btn-danger">
 <% end %>
+<script type="text/javascript">
+  jQuery('#contract_fecha').datetimepicker();
+</script>

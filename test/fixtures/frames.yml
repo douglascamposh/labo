@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  modelo: MyString
+  tamanio: MyString
+  precio: 1.5
+  costo: 1.5
+
+two:
+  modelo: MyString
+  tamanio: MyString
+  precio: 1.5
+  costo: 1.5

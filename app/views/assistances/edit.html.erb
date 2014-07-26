@@ -13,13 +13,26 @@
     </div>
   <% end %>
 
-  <label><%=@assistance.user.nombre%></label>
-  <div class="field">
-    <%= f.hidden_field :salida, :value => DateTime.now %>
+  <div class="container">
+  <div class="row clearfix">
+    <div class="col-md-4 column">
+    </div>
+    <div class="col-md-4 column">
+      <div class="well">
+      <form role="form">
+        <div class="form-group">
+           <label for="exampleInputEmail1">Direccion de correo electrónico</label><%=@assistance.user.nombre%>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Salida:</label><a><%= Time.now.strftime(" %Y-%m-%e Hora: %I:%M") %></a>
+        </div>
+        <%= f.hidden_field :salida, :value => DateTime.now %>
+        <center><button type="submit" class="btn btn-primary">Marcar salida</button>
+        <%= link_to 'Asistencias', assistances_path, :class => "btn btn-warning" %></center>
+      </form>
+    </div>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
 
-<%= link_to 'Atras', assistances_path %>
+<% end %>

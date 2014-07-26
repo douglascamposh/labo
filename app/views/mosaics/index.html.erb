@@ -1,0 +1,31 @@
+<h1>Listing mosaics</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tamanio</th>
+      <th>Precio</th>
+      <th>Costo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mosaics.each do |mosaic| %>
+      <tr>
+        <td><%= mosaic.tamanio %></td>
+        <td><%= mosaic.precio %></td>
+        <td><%= mosaic.costo %></td>
+        <td><%= link_to 'Show', mosaic %></td>
+        <td><%= link_to 'Edit', edit_mosaic_path(mosaic) %></td>
+        <td><%= link_to 'Destroy', mosaic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mosaic', new_mosaic_path %>

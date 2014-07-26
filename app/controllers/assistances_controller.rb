@@ -19,6 +19,12 @@ class AssistancesController < ApplicationController
 
   # GET /assistances/1/edit
   def edit
+    if @assistance.salida.nil? == false
+      respond_to do |format|
+        format.html { redirect_to assistances_url, :flash => { :error => "No puede marcar salida 2 veces el mismo dia" } }
+        format.json { render json: @assistance.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # POST /assistances
@@ -49,7 +55,7 @@ class AssistancesController < ApplicationController
   def update
     respond_to do |format|
       if @assistance.update(assistance_params)
-        format.html { redirect_to @assistance, notice: 'Assistance was successfully updated.' }
+        format.html { redirect_to assistances_url, notice: 'Se registro su salida correctamente' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

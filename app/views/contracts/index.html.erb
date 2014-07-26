@@ -1,55 +1,54 @@
-<h1>Listing contracts</h1>
-
-<table>
+<h1 >Lista de Contratos</h1>
+<div class="row clearfix">
+    <div class="col-md-12 column">
+      <table class="table table-bordered">
   <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Telefono</th>
-      <th>Celular</th>
-      <th>Acontecimiento</th>
-      <th>Fecha</th>
-      <th>Direccion</th>
-      <th>Observacion</th>
-      <th>Video</th>
-      <th>Fotos</th>
-      <th>Mosaico</th>
-      <th>Acuenta</th>
-      <th>Saldo</th>
-      <th>Total</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th></th>
-      <th></th>
+    <tr >
+      <th ><center> Nombre</center></th>
+      <th><center>Telefono</center></th>
+      <th><center>Celular</center></th>
+      <th><center>Acontecimiento</center></th>
+      <th><center>Fecha</center></th>
+      <th><center>Direccion</center></th>
+      <th><center>Video</center></th>
+      <th><center>Fotos</center></th>
+      <th><center>Mosaico</center></th>
+      <th><center>Marco</center></th>
+      <th><center>Acuenta</center></th>
+      <th><center>Saldo</center></th>
+      <th><center>Total</center></th>
       <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @contracts.each do |contract| %>
-      <tr>
-        <td><%= contract.nombre %></td>
-        <td><%= contract.telefono %></td>
-        <td><%= contract.celular %></td>
-        <td><%= contract.acontecimiento %></td>
-        <td><%= contract.fecha %></td>
-        <td><%= contract.direccion %></td>
-        <td><%= contract.observacion %></td>
-        <td><%= contract.video %></td>
-        <td><%= contract.fotos %></td>
-        <td><%= contract.mosaico %></td>
-        <td><%= contract.acuenta %></td>
-        <td><%= contract.saldo %></td>
-        <td><%= contract.total %></td>
-        <td><%= contract.latitude %></td>
-        <td><%= contract.longitude %></td>
-        <td><%= link_to 'Show', contract %></td>
-        <td><%= link_to 'Edit', edit_contract_path(contract) %></td>
-        <td><%= link_to 'Destroy', contract, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% if (contract.total - contract.acuenta) <=0 %>
+        <tr class="active" style= 'cursor:pointer' onclick=<%="document.location.href='/contracts/"+contract.id.to_s+"'"%> >
+      <% else %>
+        <tr class="danger" style= 'cursor:pointer' onclick=<%="document.location.href='/contracts/"+contract.id.to_s+"'"%> >
+      <% end %>
+        <td><center><%= contract.nombre %></center></td>
+        <td><center><%= contract.telefono %></center></td>
+        <td><center><%= contract.celular %></center></td>
+        <td><center><%= contract.acontecimiento %></center></td>
+        <td><center><%= contract.fecha.strftime(" %Y-%m-%e Hora: %I:%M") %></center></td>
+        <td><center><%= contract.direccion %></center></td>
+        <td><center><%= contract.video %></center></td>
+        <td><center><%= contract.fotos %></center></td>
+        <td><center><%= contract.mosaic.tamanio %></center></td>
+        <td><center><%= contract.frame.modelo %></center></td>
+        <td><center><%= contract.acuenta %></center></td>
+        <td><center><%= contract.saldo %></center></td>
+        <td><center><%= contract.total %></center></td>
+        <td><center><%= link_to 'Edit', edit_contract_path(contract), :class => 'btn btn-primary btn-sm active', :data_no_turbolink =>"true" %></center></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
+</div>
 
 <br>
 
-<%= link_to 'New Contract', new_contract_path %>
+<%= link_to 'Nuevo contrato', new_contract_path, :class=>"btn btn-info active" ,:data_no_turbolink =>"true" %>

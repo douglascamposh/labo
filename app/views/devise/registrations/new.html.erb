@@ -25,11 +25,13 @@
   <%= f.text_field :direccion %></div>
 
   <div><%= f.label :fecha, "Fecha que empezo su trabajo" %><br />
-  <%= f.date_field :fecha %></div>
+  <%= f.text_field :fecha %></div>
 
   
 
-  <div><%= f.submit "Sign up" %></div>
+  <div><%= f.submit "Registrarse" %></div>
 <% end %>
-
+<script type="text/javascript">
+  jQuery('#user_fecha').datetimepicker();
+</script>
 <%= render "devise/shared/links" %>

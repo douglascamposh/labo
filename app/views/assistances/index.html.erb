@@ -1,33 +1,37 @@
-<h1>Listing assistances</h1>
+<h1>Lista de asistencias</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Ingreso</th>
-      <th>Salida</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @assistances.each do |assistance| %>
-      <tr>
-        <td><%= assistance.user.nombre %></td>
-        <td><%= assistance.created_at.localtime.strftime("%Y-%m-%e %I:%M") %></td>
-        <% if !assistance.salida.nil? %>
-        <td><%= assistance.salida.localtime.strftime("%Y-%m-%e %I:%M") %></td>
-        <% else %>
-          <td><%= link_to 'Marcar Salida', edit_assistance_path(assistance) %></td>
+<div class="row clearfix">
+    <div class="col-md-12 column">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Ingreso</th>
+            <th>Salida</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @assistances.each do |assistance| %>
+          <tr >
+            <td><%= assistance.user.nombre %></td>
+            <td><%= assistance.created_at.localtime.strftime("%Y-%m-%e %I:%M") %></td>
+            <% if !assistance.salida.nil? %>
+              <td><%= assistance.salida.localtime.strftime("%Y-%m-%e %I:%M") %></td>
+            <% else %>
+              <td><%= link_to 'Marcar Salida', edit_assistance_path(assistance), :class =>"btn-mini btn-info" %></td>
+            <% end %>
+            <td><%= link_to 'Destroy', assistance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        
         <% end %>
-        <td><%= link_to 'Destroy', assistance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
 <br>
+<font color = "blue"> cambia de color</font>
+<%= link_to 'Marcar asistencia', new_assistance_path, :class =>"btn btn-primary" %>
 
-<%= link_to 'New Assistance', new_assistance_path %>

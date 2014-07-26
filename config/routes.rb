@@ -1,4 +1,8 @@
 Laboratorio::Application.routes.draw do
+  resources :frames
+
+  resources :mosaics
+
   resources :contracts
 
   resources :assistances

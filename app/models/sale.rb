@@ -1,3 +1,3 @@
 class Sale < ActiveRecord::Base
-	has_many :canals
+	belongs_to :canal
 end

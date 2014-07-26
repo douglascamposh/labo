@@ -1,79 +1,75 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Nombre:</strong>
-  <%= @contract.nombre %>
-</p>
-
-<p>
-  <strong>Telefono:</strong>
-  <%= @contract.telefono %>
-</p>
-
-<p>
-  <strong>Celular:</strong>
-  <%= @contract.celular %>
-</p>
-
-<p>
-  <strong>Acontecimiento:</strong>
-  <%= @contract.acontecimiento %>
-</p>
-
-<p>
-  <strong>Fecha:</strong>
-  <%= @contract.fecha %>
-</p>
-
-<p>
-  <strong>Direccion:</strong>
-  <%= @contract.direccion %>
-</p>
-
-<p>
-  <strong>Observacion:</strong>
-  <%= @contract.observacion %>
-</p>
-
-<p>
-  <strong>Video:</strong>
-  <%= @contract.video %>
-</p>
-
-<p>
-  <strong>Fotos:</strong>
-  <%= @contract.fotos %>
-</p>
-
-<p>
-  <strong>Mosaico:</strong>
-  <%= @contract.mosaico %>
-</p>
-
-<p>
-  <strong>Acuenta:</strong>
-  <%= @contract.acuenta %>
-</p>
-
-<p>
-  <strong>Saldo:</strong>
-  <%= @contract.saldo %>
-</p>
-
-<p>
-  <strong>Total:</strong>
-  <%= @contract.total %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @contract.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @contract.longitude %>
-</p>
-
-<%= link_to 'Edit', edit_contract_path(@contract) %> |
-<%= link_to 'Back', contracts_path %>
+ <class="container">
+  <div class="row clearfix">
+    <div class="col-md-4 column">
+        <h3>
+        <div class="form-group">
+           <label for="exampleInputEmail1">Nombre:</label>
+              <%= @contract.nombre %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Telefono:</label>
+              <%= @contract.telefono %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Celular:</label>
+             <%= @contract.celular %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Acontecimiento:</label>
+             <%= @contract.acontecimiento %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Direccion:</label>
+             <%= @contract.direccion %>
+           
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Fecha:</label>
+             <%= @contract.fecha.strftime(" %Y-%m-%e Hora: %I:%M") %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Observacion:</label>
+             <%= @contract.observacion %>
+        </div>
+        </h3>
+    </div>
+    <div class="col-md-3 column">
+        <h3>
+        <div class="form-group">
+           <label for="example">Fotos:</label>
+             <%= @contract.fotos %> Docenas
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Video:</label>
+             <%= @contract.video %> Bs.
+        </div>
+        <div class="form-group">
+        <label >Mosaico:</label>
+            <%= @contract.mosaic.tamanio %>
+        </div>
+        <div class="form-group">
+        <label >Marco:</label>
+          <%= @contract.frame.modelo %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputEmail1">A cuenta:</label>
+             <%= @contract.acuenta %> Bs.
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Saldo:</label>
+             <%= @contract.saldo %> Bs.
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Total:</label>
+             <%= @contract.total %> Bs.
+        </div>
+        </h3>
+    </div>
+    <div class="col-md-4 column">
+      <div id="map">
+        <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x450&sensor=false&zoom=16&markers=#{@contract.latitude}%2C#{@contract.longitude}" %>
+      </div>
+    </div>
+  </div>
+  <%= link_to('Editar', edit_contract_path(@contract), data: { no_turbolink: true }, :class=>"btn btn-primary active") %> |
+<%= link_to 'Atras', contracts_path, :class=>"btn btn-info active" %>

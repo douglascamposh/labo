@@ -1,0 +1,33 @@
+<h1>Listing frames</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Modelo</th>
+      <th>Tamanio</th>
+      <th>Precio</th>
+      <th>Costo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @frames.each do |frame| %>
+      <tr>
+        <td><%= frame.modelo %></td>
+        <td><%= frame.tamanio %></td>
+        <td><%= frame.precio %></td>
+        <td><%= frame.costo %></td>
+        <td><%= link_to 'Show', frame %></td>
+        <td><%= link_to 'Edit', edit_frame_path(frame) %></td>
+        <td><%= link_to 'Destroy', frame, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Frame', new_frame_path %>

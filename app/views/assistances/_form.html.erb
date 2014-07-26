@@ -10,19 +10,26 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :user %><br>
-    <%= f.collection_select :user_id, User.all, :id, :nombre, {class: "form-control input-sm"} %>
+  <div class="container">
+  <div class="row clearfix">
+    <div class="col-md-4 column">
+    </div>
+    <div class="col-md-4 column">
+      <div class="well">
+      <form role="form">
+        <div class="form-group">
+           <label for="exampleInputEmail1">Direccion de correo electrónico</label><%= f.collection_select :user_id, User.all, :id, :nombre, {class: "form-control input-sm"} %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Ingreso:</label><a><%= Time.now.strftime(" %Y-%m-%e Hora: %I:%M") %></a>
+        </div>
+        <%= f.hidden_field :entrada, :value => Date.today %>
+        <center><button type="submit" class="btn btn-primary">Marcar ingreso</button>
+        <%= link_to 'Asistencias', assistances_path, :class => "btn btn-warning" %></center>
+      </form>
+    </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :salida %><br>
-    <%# f.datetime_select :salida %>
-  </div>
-  <div>
-
-  </div><%= f.hidden_field :entrada, :value => Date.today %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
+  
 <% end %>

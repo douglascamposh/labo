@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716235959) do
+ActiveRecord::Schema.define(version: 20140717193743) do
 
   create_table "assistances", force: true do |t|
     t.integer  "user_id"
@@ -51,9 +51,30 @@ ActiveRecord::Schema.define(version: 20140716235959) do
     t.integer  "saldo"
     t.integer  "total"
     t.integer  "user_id"
+    t.integer  "mosaic_id"
+    t.integer  "frame_id"
   end
 
+  add_index "contracts", ["frame_id"], name: "index_contracts_on_frame_id"
+  add_index "contracts", ["mosaic_id"], name: "index_contracts_on_mosaic_id"
   add_index "contracts", ["user_id"], name: "index_contracts_on_user_id"
+
+  create_table "frames", force: true do |t|
+    t.string   "modelo"
+    t.string   "tamanio"
+    t.float    "precio"
+    t.float    "costo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mosaics", force: true do |t|
+    t.string   "tamanio"
+    t.float    "precio"
+    t.float    "costo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sales", force: true do |t|
     t.string   "observacion"
