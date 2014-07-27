@@ -1,5 +1,7 @@
 class CanalsController < ApplicationController
   before_action :set_canal, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  load_and_authorize_resource
 
   # GET /canals
   # GET /canals.json

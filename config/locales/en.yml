@@ -21,3 +21,9 @@
 
 en:
   hello: "Hello world"
+  unauthorized:
+    manage:
+      all: "No esta autorizado para visitar esta pagina"
+      user: "Not allowed to manage other user accounts."
+    update:
+      project: "Not allowed to update this project."

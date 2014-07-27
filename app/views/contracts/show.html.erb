@@ -71,5 +71,8 @@
       </div>
     </div>
   </div>
-  <%= link_to('Editar', edit_contract_path(@contract), data: { no_turbolink: true }, :class=>"btn btn-primary active") %> |
+  <% if can? :update, @contract %>
+    <%= link_to('Editar', edit_contract_path(@contract), data: { no_turbolink: true }, :class=>"btn btn-primary active") %> |
+<% end %>
+  
 <%= link_to 'Atras', contracts_path, :class=>"btn btn-info active" %>

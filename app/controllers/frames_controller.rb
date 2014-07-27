@@ -1,5 +1,7 @@
 class FramesController < ApplicationController
   before_action :set_frame, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  load_and_authorize_resource
 
   # GET /frames
   # GET /frames.json
