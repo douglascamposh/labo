@@ -22,11 +22,12 @@
         </thead>
         <tbody>
           <% @sales.each do |sale| %>
+          <% if sale.created_at.to_date == DateTime.now.to_date %>
           <tr class="active">
             <td><%= sale.sobre %></td>
             <td><%= sale.nombre %></td>
             <% if sale.aficionado == true%>
-            <td>fotografo</td>
+              <td>fotografo</td>
             <% else %>
               <td>aficionado</td>
             <% end %>
@@ -40,6 +41,7 @@
             <td><%= link_to 'Ver', sale %></td>
             <td><%= link_to 'Editar', edit_sale_path(sale) %></td>
           </tr>
+          <% end %>
         </tbody>
         <% end %>
       </table>
