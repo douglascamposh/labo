@@ -16,13 +16,14 @@
     <%= f.text_field :modelo %>
   </div>
   <div class="field">
-    <%= f.label :tamanio %><br>
-    <%= f.text_field :tamanio %>
+    <%= f.label :mosaic_id %><br>
+    <%= f.collection_select :mosaic_id, Mosaic.all, :id, :tamanio, {prompt: "Seleccionar un tamanio"}, {class: "form-control input-sm"} %>
   </div>
   <div class="field">
     <%= f.label :precio %><br>
     <%= f.text_field :precio %>
   </div>
+  
   <div class="field">
     <%= f.label :costo %><br>
     <%= f.text_field :costo %>

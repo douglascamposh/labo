@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nombre: MyString
+  acuenta: 1.5
+  saldo: 1.5
+  total: 1.5
+  cantidad: 1
+  material_id: 
+
+two:
+  nombre: MyString
+  acuenta: 1.5
+  saldo: 1.5
+  total: 1.5
+  cantidad: 1
+  material_id: 

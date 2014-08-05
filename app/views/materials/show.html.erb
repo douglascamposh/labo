@@ -1,0 +1,28 @@
+<div class="container"> 
+  <div class="row clearfix">
+    <div class="col-md-5 column">
+      <div class="well">
+        <h3>
+        <div class="form-group">
+           <label for="exampleInputEmail1">Descripción:</label>
+              <%= @material.descripcion %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputEmail1">Cantidad en almacen:</label>
+              <%= @material.cantidad %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Precio unitario de compra:</label>
+              <%= @material.precio_compra %>
+        </div>
+        <div class="form-group">
+           <label for="exampleInputPassword1">Precio unitario de venta:</label>
+             <%= @material.precio_venta %>
+        </div>
+    </h3>
+    </div>
+    <%= link_to 'Editar', edit_material_path(@material), :class=>"btn btn-danger btn-sm active" %> |
+	<%= link_to 'Atras', materials_path, :class=>"btn btn-default btn-sm active" %>
+  </div>
+ </div>
+</div>

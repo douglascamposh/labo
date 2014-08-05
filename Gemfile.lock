@@ -61,6 +61,7 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.8.2)
+    nested_form (0.3.2)
     orm_adapter (0.5.0)
     polyglot (0.3.3)
     rack (1.5.2)
@@ -120,11 +121,12 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  cancan
+  cancan (~> 1.2)
   coffee-rails (~> 4.0.0)
   devise (= 3.0.0)
   jbuilder (~> 1.2)
   jquery-rails
+  nested_form (~> 0.3.2)
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sdoc

@@ -1,0 +1,43 @@
+<%= nested_form_for(@sale_material) do |f| %>
+  <% if @sale_material.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sale_material.errors.count, "error") %> prohibited this sale_material from being saved:</h2>
+
+      <ul>
+      <% @sale_material.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="row">
+  <div class="col-sm-3">
+    <div class="form-group">
+           <label for="exampleInputEmail1">Nombre del cliente</label>
+           <%= f.text_field :nombre, :class=>'form-control' %>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+           <label for="exampleInputPassword1">A cuenta</label>
+              <%= f.number_field :acuenta, :class=>'form-control' %>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+           <label for="exampleInputPassword1">Saldo</label>
+              <%= f.text_field :saldo, :class=>'form-control' %>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+           <label for="exampleInputPassword1">Total</label>
+              <%= f.text_field :total, :class=>'form-control', :onclick=>"algo()" %>
+    </div>
+  </div>
+</div>
+<%= f.fields_for :products %>
+<p><%= f.link_to_add "Agregar un producto", :products, :class=> 'btn btn-success pull-right' %></p>
+<input type="submit" value="Registrar Venta" class="btn btn-danger">
+<% end %>

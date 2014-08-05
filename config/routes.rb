@@ -1,4 +1,9 @@
 Laboratorio::Application.routes.draw do
+  get 'contracts/update_frames', as: 'update_frames'
+  resources :sale_materials
+
+  resources :materials
+
   resources :frames
 
   resources :mosaics

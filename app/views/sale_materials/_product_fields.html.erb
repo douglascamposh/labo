@@ -1,0 +1,19 @@
+<div class="row" >
+<div class="col-sm-3">
+  <div class="form-group">
+    <label for="material_id">Producto</label>
+    <%= f.collection_select :material_id, Material.all, :id, :descripcion, {prompt: "Seleccionar un producto"}, {class: "form-control input-sm", :required => true} %>
+  </div>
+</div>
+<div class="col-sm-2">
+  <div class="form-group">
+    <%= f.label :cantidad, 'Cantidad' %><br>
+    <%= f.text_field :cantidad ,class: "form-control input-sm" %>
+  </div>
+</div>
+<div class="col-sm-2">
+  <div class="form-group">
+    <%= f.link_to_remove "Eliminar producto", :class=> 'btn btn-warning active' %>
+  </div>
+</div>
+</div>

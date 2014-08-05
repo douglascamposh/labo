@@ -8,7 +8,7 @@ class Ability
        if user.role == 'admin'
          can :manage, :all
        elsif user.role == 'secretary'
-         can [:create, :read, :update], [Sale, Contract, User, Assistance]
+         can [:create, :read, :update], [Sale, Contract, User, Assistance, SaleMaterial]
         else
             can :read, :all
             can [:create, :read, :update], [Assistance, User]

@@ -1,7 +1,7 @@
 class FramesController < ApplicationController
   before_action :set_frame, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  load_and_authorize_resource
+  #load_and_authorize_resource
 
   # GET /frames
   # GET /frames.json
@@ -71,6 +71,6 @@ class FramesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def frame_params
-      params.require(:frame).permit(:modelo, :tamanio, :precio, :costo)
+      params.require(:frame).permit(:modelo, :mosaic_id, :precio, :costo)
     end
 end

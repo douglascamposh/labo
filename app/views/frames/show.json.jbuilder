@@ -1,1 +1,1 @@
-json.extract! @frame, :id, :modelo, :tamanio, :precio, :costo, :created_at, :updated_at
+json.extract! @frame, :id, :modelo, :precio, :costo, :created_at, :updated_at

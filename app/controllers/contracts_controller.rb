@@ -1,7 +1,7 @@
 class ContractsController < ApplicationController
   before_action :set_contract, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  load_and_authorize_resource
+  #load_and_authorize_resource
   # GET /contracts
   # GET /contracts.json
   def index
@@ -16,10 +16,14 @@ class ContractsController < ApplicationController
   # GET /contracts/new
   def new
     @contract = Contract.new
+    @mosaics = Mosaic.all
+    @frames = Frame.where("mosaic_id = ?", Mosaic.first.id)
   end
 
   # GET /contracts/1/edit
   def edit
+    @mosaics = Mosaic.all
+    @frames = Frame.where("mosaic_id = ?", Mosaic.first.id)
   end
 
   # POST /contracts
@@ -59,6 +63,13 @@ class ContractsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to contracts_url }
       format.json { head :no_content }
+    end
+  end
+
+  def update_frames
+    @frames = Frame.where("mosaic_id = ?", params[:country_id])
+    respond_to do |format|
+      format.js
     end
   end
 

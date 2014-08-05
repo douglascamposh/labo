@@ -18,7 +18,6 @@
             <th>Observacion</th>
             <th></th>
             <th></th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -38,9 +37,8 @@
             <td><%= sale.saldo %></td>
             <td><%= sale.total %></td>
             <td><%= sale.observacion %></td>
-            <td><%= link_to 'Show', sale %></td>
-            <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
-            <td><%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Ver', sale %></td>
+            <td><%= link_to 'Editar', edit_sale_path(sale) %></td>
           </tr>
         </tbody>
         <% end %>

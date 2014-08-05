@@ -18,9 +18,6 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li >
-              <a href="#">Link</a>
-            </li>
             <li>
               <%= link_to 'Marcar Asistencia', new_assistance_path %>
             </li>
@@ -87,6 +84,28 @@
                 </li>
               </ul>
             </li>
+            <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos<strong class="caret"></strong></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to 'Registrar nuevo de producto', new_material_path %>
+                </li>
+                <li>
+                  <%= link_to 'Lista de productos', materials_path %>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Venta de Productos<strong class="caret"></strong></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to 'Registrar venta producto', new_sale_material_path %>
+                </li>
+                <li>
+                  <%= link_to 'Lista de productos', sale_materials_path %>
+                </li>
+              </ul>
+            </li>
           </ul>
           
           <ul class="nav navbar-nav navbar-right">
@@ -107,25 +126,6 @@
                 <%= link_to "Login", new_user_session_path %>
               </li>
             <% end %>
-            <li class="dropdown">
-               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="#">Action</a>
-                </li>
-                <li>
-                  <a href="#">Another action</a>
-                </li>
-                <li>
-                  <a href="#">Something else here</a>
-                </li>
-                <li class="divider">
-                </li>
-                <li>
-                  <a href="#">Separated link</a>
-                </li>
-              </ul>
-            </li>
           </ul>
         </div>
         

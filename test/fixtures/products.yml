@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  SaleMaterial_id: 
+  Material_id: 
+  cantidad: 1
+
+two:
+  SaleMaterial_id: 
+  Material_id: 
+  cantidad: 1

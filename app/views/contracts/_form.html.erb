@@ -61,18 +61,21 @@
         </div>
         <div class="form-group">
            <label for="exampleInputPassword1">Video</label>
-           <select id = "contract_video" name = "contract[video]" class='form-control input-sm' >
+           <select id = "contract_video" name = "contract[video]" class='form-control' >
                 <option value='500'> DVD - precio 500 Bs.</option>
                 <option value='700'> FullHD - precio 700 Bs.</option>
             </select>
         </div>
         <div class="form-group">
         <label >Mosaico</label>
-          <%= f.collection_select :mosaic_id, Mosaic.all, :id, :tamanio, {prompt: "Seleccione un tamanio"}, {class: "form-control input-sm"} %>
+          <%= f.select :mosaic_id, options_for_select(@mosaics.collect { |mosaic| [mosaic.tamanio.titleize, mosaic.id] }, 1), {}, { id: 'mosaics_select',class: "form-control" } %>
+          
         </div>
         <div class="form-group">
         <label >Marco</label>
-        <%= f.collection_select :frame_id, Frame.all, :id, :modelo, {prompt: "Seleccione un modelo"}, {class: "form-control input-sm"} %>
+        
+        <%= f.select :frame_id, options_for_select(@frames.collect { |frame| [frame.modelo.titleize, frame.id] }, 0), {}, { id: 'frames_select',class: "form-control" } %>
+        
         </div>
         <div class="form-group">
            <label for="exampleInputEmail1">A cuenta</label><%= f.number_field :acuenta, :class=>'form-control', :placeholder=>'ingrese cuanto cuanto dejara a cuenta', :maxlength => 10 , :title => "Por favor rellene este campo", :required => true %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140727022906) do
+ActiveRecord::Schema.define(version: 20140805152603) do
 
   create_table "assistances", force: true do |t|
     t.integer  "user_id"
@@ -61,9 +61,20 @@ ActiveRecord::Schema.define(version: 20140727022906) do
 
   create_table "frames", force: true do |t|
     t.string   "modelo"
-    t.string   "tamanio"
     t.float    "precio"
     t.float    "costo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "mosaic_id"
+  end
+
+  add_index "frames", ["mosaic_id"], name: "index_frames_on_mosaic_id"
+
+  create_table "materials", force: true do |t|
+    t.string   "descripcion"
+    t.integer  "cantidad"
+    t.float    "precio_compra"
+    t.float    "precio_venta"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -72,6 +83,27 @@ ActiveRecord::Schema.define(version: 20140727022906) do
     t.string   "tamanio"
     t.float    "precio"
     t.float    "costo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", force: true do |t|
+    t.integer  "cantidad"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "material_id"
+    t.integer  "sale_material_id"
+  end
+
+  add_index "products", ["material_id"], name: "index_products_on_material_id"
+  add_index "products", ["sale_material_id"], name: "index_products_on_sale_material_id"
+
+  create_table "sale_materials", force: true do |t|
+    t.string   "nombre"
+    t.float    "acuenta"
+    t.float    "saldo"
+    t.float    "total"
+    t.integer  "cantidad"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

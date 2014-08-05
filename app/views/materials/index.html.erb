@@ -1,0 +1,37 @@
+<h1>Lista de Productos</h1>
+<div class="row clearfix">
+    <div class="col-md-12 column">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th><center>Descripcion</center></th>
+      <th><center>Cantidad</center></th>
+      <th><center>Precio compra</center></th>
+      <th><center>Precio venta</center></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @materials.each do |material| %>
+      <tr>
+        <td><center><%= material.descripcion %></center></td>
+        <td><center><%= material.cantidad %></center></td>
+        <td><center><%= material.precio_compra %></center></td>
+        <td><center><%= material.precio_venta %></center></td>
+        <td><center><%= link_to 'Ver Producto', material, :class=>"btn btn-info active" %></center></td>
+        <td><center><%= link_to 'Editar', edit_material_path(material), :class=>"btn btn-warning active" %></center></td>
+        <td><center><%= link_to 'Eliminar', material, method: :delete, data: { confirm: 'Are you sure?' } %></center></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+
+<br>
+<% if can? :create, Contract %>
+  <%= link_to 'Nuevo Producto', new_material_path, :class=>"btn btn-info active" %>
+<% end %>

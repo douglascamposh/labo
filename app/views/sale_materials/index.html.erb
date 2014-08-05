@@ -1,0 +1,39 @@
+<h1>Productos vendidos</h1>
+<div class="row clearfix">
+<div class="col-md-12 column">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+     <th><center>Nombre</center></th>
+      <th><center>Acuenta</center></th>
+      <th><center>Saldo</center></th>
+      <th><center>Total</center></th>
+      <th><center>Producto | Cantidad</center></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sale_materials.each do |sale_material| %>
+      <tr>
+        <td><center><%= sale_material.nombre %></center></td>
+        <td><center><%= sale_material.acuenta %></center></td>
+        <td><center><%= sale_material.saldo %></center></td>
+        <td><center><%= sale_material.total %></center></td>
+        <td>
+        <% sale_material.products.each do |product| %>
+        <center><%= product.material.descripcion %> | <%= product.cantidad %> unidades</center>
+        <% end %>
+        </td>
+        <td><center><%= link_to 'Ver', sale_material %></center></td>
+        <td><center><%= link_to 'Editar', edit_sale_material_path(sale_material) %></center></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+<br>
+
+<%= link_to 'Nueva venta', new_sale_material_path, :class=>"btn btn-info active" %>
